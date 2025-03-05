@@ -1,7 +1,7 @@
 public class Telco implements TelcoSubscription {
     private String telcoName;
     private double promoPrice;
-    private int dataAllowance;  // Renamed from dateAllowance
+    private int dataAllowance;
     private boolean unliCallText;
 
     public Telco(String telcoName, double promoPrice, int dataAllowance, boolean unliCallText) {
@@ -20,20 +20,20 @@ public class Telco implements TelcoSubscription {
     }
 
     public int getDataAllowance() {
-        return dataAllowance; 
+        return dataAllowance;
     }
 
-    public boolean getUnliCallText() {
+    public boolean hasUnliCallText() {
         return unliCallText;
     }
 
     @Override
-    public String accept(UsagePromo promo) {
-        return promo.showAllowance(this.telcoName, this.promoPrice, this.dataAllowance);
+    public String accept(UsagePromo promo, double price) {
+        return promo.showAllowance(this.telcoName, price, this.dataAllowance);
     }
 
     @Override
-    public String accept(UnliCallTextOffer unliPackage) {
-        return unliPackage.showUnliCallsTextOffer(this.telcoName, this.unliCallText);
+    public String accept(UnliCallTextOffer unliPackage, boolean unliCallText) {
+        return unliPackage.showUnliCallsTextOffer(this.telcoName, unliCallText);
     }
 }

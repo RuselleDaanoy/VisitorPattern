@@ -1,4 +1,4 @@
 public interface TelcoSubscription {
-    String accept(UsagePromo promo);  
-    String accept(UnliCallTextOffer unliPackage);  
+    String accept(UsagePromo promo, double price);
+    String accept(UnliCallTextOffer unliPackage, boolean unliCallText);
 }
